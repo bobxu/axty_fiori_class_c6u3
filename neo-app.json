@@ -1,0 +1,34 @@
+{
+  "welcomeFile": "webapp/test/testFLPService.html",
+  "routes": [
+    {
+      "path": "/resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "preferLocal": true,
+        "entryPath": "/resources"
+      },
+      "description": "SAPUI5 Resources"
+    },
+    {
+      "path": "/test-resources",
+      "target": {
+        "type": "service",
+        "name": "sapui5",
+        "entryPath": "/test-resources"
+      },
+      "description": "SAPUI5 Test Resources"
+    },
+    {
+      "path": "/FioriDemo",
+      "target": {
+        "type": "destination",
+        "name": "FioriDemo"
+      },
+      "description": "Fioriå¼åå¥é¨è¯¾ç¨"
+    }
+  ],
+  "authenticationMethod": "none",
+  "sendWelcomeFileRedirect": true
+}

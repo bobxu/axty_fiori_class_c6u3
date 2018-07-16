@@ -1,0 +1,115 @@
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="6a3fae75fdb445080ff361e7" xml:lang="en" sap:schema-version="0000" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityContainer Name="6a3fae75fdb445080ff361e7_Entities" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="Products" EntityType="6a3fae75fdb445080ff361e7.Product" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="ProductCategoryCategory" Association="6a3fae75fdb445080ff361e7.ProductCategoryCategory" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Products" Role="FromRole_ProductCategoryCategory"/>
+                    <End EntitySet="Categories" Role="ToRole_ProductCategoryCategory"/>
+                </AssociationSet>
+                <AssociationSet Name="ProductSupplierSupplier" Association="6a3fae75fdb445080ff361e7.ProductSupplierSupplier" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Products" Role="FromRole_ProductSupplierSupplier"/>
+                    <End EntitySet="Suppliers" Role="ToRole_ProductSupplierSupplier"/>
+                </AssociationSet>
+                <EntitySet Name="Categories" EntityType="6a3fae75fdb445080ff361e7.Category" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="CategoryProductsProduct" Association="6a3fae75fdb445080ff361e7.CategoryProductsProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Categories" Role="FromRole_CategoryProductsProduct"/>
+                    <End EntitySet="Products" Role="ToRole_CategoryProductsProduct"/>
+                </AssociationSet>
+                <EntitySet Name="Suppliers" EntityType="6a3fae75fdb445080ff361e7.Supplier" sap:creatable="false" sap:updatable="false" sap:deletable="false"/>
+                <AssociationSet Name="SupplierProductsProduct" Association="6a3fae75fdb445080ff361e7.SupplierProductsProduct" sap:creatable="true" sap:updatable="true" sap:deletable="true">
+                    <End EntitySet="Suppliers" Role="FromRole_SupplierProductsProduct"/>
+                    <End EntitySet="Products" Role="ToRole_SupplierProductsProduct"/>
+                </AssociationSet>
+            </EntityContainer>
+            <EntityType Name="Product">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="Description" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Description"/>
+                <Property Name="ReleaseDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="ReleaseDate"/>
+                <Property Name="DiscontinuedDate" Type="Edm.DateTime" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:display-format="Date" sap:label="DiscontinuedDate"/>
+                <Property Name="Rating" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Rating"/>
+                <Property Name="Price" Type="Edm.Decimal" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Price"/>
+                <Property Name="___FK_862e1f1fc0664dee0ff365af_00021" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="___FK_862e1f1fc0664dee0ff365af_00021"/>
+                <Property Name="___FK_862e1f1fc0664dee0ff365af_00023" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="___FK_862e1f1fc0664dee0ff365af_00023"/>
+                <Property Name="___FK_862e1f1fc0664dee0ff365af_00025" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="___FK_862e1f1fc0664dee0ff365af_00025"/>
+                <Property Name="___FK_862e1f1fc0664dee0ff365af_00027" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:label="___FK_862e1f1fc0664dee0ff365af_00027"/>
+                <NavigationProperty Name="Category" Relationship="6a3fae75fdb445080ff361e7.ProductCategoryCategory" FromRole="FromRole_ProductCategoryCategory" ToRole="ToRole_ProductCategoryCategory"/>
+                <NavigationProperty Name="Supplier" Relationship="6a3fae75fdb445080ff361e7.ProductSupplierSupplier" FromRole="FromRole_ProductSupplierSupplier" ToRole="ToRole_ProductSupplierSupplier"/>
+            </EntityType>
+            <Association Name="ProductCategoryCategory">
+                <End Type="6a3fae75fdb445080ff361e7.Product" Multiplicity="1" Role="FromRole_ProductCategoryCategory"/>
+                <End Type="6a3fae75fdb445080ff361e7.Category" Multiplicity="1" Role="ToRole_ProductCategoryCategory"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ProductCategoryCategory">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ProductCategoryCategory">
+                        <PropertyRef Name="___FK_862e1f1fc0664dee0ff365af_00021"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ProductSupplierSupplier">
+                <End Type="6a3fae75fdb445080ff361e7.Product" Multiplicity="1" Role="FromRole_ProductSupplierSupplier"/>
+                <End Type="6a3fae75fdb445080ff361e7.Supplier" Multiplicity="1" Role="ToRole_ProductSupplierSupplier"/>
+                <ReferentialConstraint>
+                    <Principal Role="ToRole_ProductSupplierSupplier">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="FromRole_ProductSupplierSupplier">
+                        <PropertyRef Name="___FK_862e1f1fc0664dee0ff365af_00023"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Category">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <NavigationProperty Name="Products" Relationship="6a3fae75fdb445080ff361e7.CategoryProductsProduct" FromRole="FromRole_CategoryProductsProduct" ToRole="ToRole_CategoryProductsProduct"/>
+            </EntityType>
+            <Association Name="CategoryProductsProduct">
+                <End Type="6a3fae75fdb445080ff361e7.Category" Multiplicity="1" Role="FromRole_CategoryProductsProduct"/>
+                <End Type="6a3fae75fdb445080ff361e7.Product" Multiplicity="*" Role="ToRole_CategoryProductsProduct"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_CategoryProductsProduct">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_CategoryProductsProduct">
+                        <PropertyRef Name="___FK_862e1f1fc0664dee0ff365af_00025"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityType Name="Supplier">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="ID"/>
+                <Property Name="Name" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Name"/>
+                <Property Name="AddressStreet" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AddressStreet"/>
+                <Property Name="AddressCity" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AddressCity"/>
+                <Property Name="AddressState" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AddressState"/>
+                <Property Name="AddressZipCode" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AddressZipCode"/>
+                <Property Name="AddressCountry" Type="Edm.String" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="AddressCountry"/>
+                <Property Name="Concurrency" Type="Edm.Int32" sap:creatable="true" sap:updatable="true" sap:deletable="true" sap:label="Concurrency"/>
+                <NavigationProperty Name="Products" Relationship="6a3fae75fdb445080ff361e7.SupplierProductsProduct" FromRole="FromRole_SupplierProductsProduct" ToRole="ToRole_SupplierProductsProduct"/>
+            </EntityType>
+            <Association Name="SupplierProductsProduct">
+                <End Type="6a3fae75fdb445080ff361e7.Supplier" Multiplicity="1" Role="FromRole_SupplierProductsProduct"/>
+                <End Type="6a3fae75fdb445080ff361e7.Product" Multiplicity="*" Role="ToRole_SupplierProductsProduct"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SupplierProductsProduct">
+                        <PropertyRef Name="ID"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SupplierProductsProduct">
+                        <PropertyRef Name="___FK_862e1f1fc0664dee0ff365af_00027"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

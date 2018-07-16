@@ -1,0 +1,36 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="com.sap.build.standard.products.controller.Products">
+    <Page title="{i18n>listHeaderTitle}" showHeader="true" showFooter="true" showNavButton="false">
+        <content>
+            <List id="productList" mode="SingleSelectMaster" width="100%" headerText="Header" selectionChange="_onObjectListItemPress" footerText="" backgroundDesign="Solid" showSeparators="All" growing="true" growingThreshold="5" growingScrollToLoad="true" visible="true" items="{        path: '/Products',        sorter: {         path: 'Name',         descending: false,         group: false        },        groupHeaderFactory: '.getGroupHeader'       }">
+                <infoToolbar/>
+                <headerToolbar>
+                    <Toolbar enabled="true" visible="true" width="" design="Solid">
+                        <content>
+                            <SearchField placeholder="{i18n>listSearch}" showSearchButton="true" visible="true" width="100%" liveChange="onSearch"/>
+                        </content>
+                    </Toolbar>
+                </headerToolbar>
+                <items>
+                    <ObjectListItem intro="{ID}" title="{Name}" number="{path: 'Price', type: 'sap.ui.model.type.Float', formatOptions: { maxFractionDigits: 2 }}" numberUnit="{path: 'ReleaseDate', type: 'sap.ui.model.type.Date', formatOptions: { UTC: true, style: 'short' }}" numberState="Warning" type="Navigation" selected="false" showMarkers="false">
+                        <attributes>
+                            <ObjectAttribute text="{Description}" active="false" visible="true"/>
+                        </attributes>
+                        <firstStatus/>
+                        <secondStatus/>
+                    </ObjectListItem>
+                </items>
+            </List>
+        </content>
+        <footer>
+            <OverflowToolbar width="100%" height="auto" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="" type="Default" icon="sap-icon://add" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="_onButtonPress"/>
+                    <ToolbarSpacer width=""/>
+                    <Button text="" type="Default" icon="sap-icon://group-2" iconFirst="true" width="auto" enabled="true" visible="true" iconDensityAware="false" press="onGroupSort"/>
+                </content>
+            </OverflowToolbar>
+        </footer>
+        <headerContent/>
+    </Page>
+</mvc:View>

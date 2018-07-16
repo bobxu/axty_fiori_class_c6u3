@@ -1,0 +1,35 @@
+{
+    "application": {
+        "id": "",
+        "title": "com.sap.build.standard.products.chapter6unit3",
+        "description": "Chapter 6 unit 3",
+        "type": "SAP_UI5_Component",
+        "componentUrl": "/webapp",
+        "appUrl": "#chapter6unit3-Display",
+        "navigationComponentName": "com.sap.build.standard.products",
+        "intentSemanticObject": "chapter6unit3",
+        "intentAction": "Display",
+        "html5ApplicationName": "chapter6unit3",
+        "HCPParentApplicationName": ""
+    },
+    "assignment": {
+        "groups": [
+            "3369eb8e-13f6-496d-9356-8bd0fe1ad310-1530058945284"
+        ],
+        "contentPackages": [
+            "4d633e20-30cb-4dfd-88de-deb372de4fd3-1530058881592"
+        ],
+        "categories": []
+    },
+    "tile": {
+        "type": "StaticTile",
+        "title": "Chapter 6",
+        "subtitle": "Unit 3",
+        "searchKeywords": "Chapter 6,Unit 3",
+        "displayIconUrl": "sap-icon://approvals",
+        "displayInfoText": "",
+        "size": "1x1",
+        "serviceURL": "",
+        "refreshInterval": ""
+    }
+}
